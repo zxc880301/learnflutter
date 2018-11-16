@@ -11,16 +11,48 @@ class HomePageState extends State<HomePage>{
   Widget build(BuildContext context) {
     print("HomePageState----------build");
     return Scaffold(
-      body: Center(child:RaisedButton(onPressed: to1page,
-      child: Text("我是Home页"),
-      ),
-    ));
+      appBar: AppBar(title: Text("功能列表")),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+            MyButton(to1page,"Text组件"),
+        ],
+      )
+    );
   }
 
   void to1page(){
-    Navigator.pushNamed(context, "/one");
-//    Navigator.of(context).popAndPushNamed("/one");//把自己弹出，把新页面压入
-//    Navigator.pushNamedAndRemoveUntil(context, "/one", ModalRoute.withName("/"));//压入新页面，弹出栈内页面至指定name
+    Navigator.pushNamed(context, "/text_normal");
   }
 
 }
+
+
+
+
+
+///这是一个按钮
+class MyButton extends StatelessWidget{
+  MyButton(this.pressed,this.text);
+  VoidCallback pressed;
+  String text;
+
+  @override
+  Widget build(BuildContext context) {
+    Widget myBtn = RaisedButton(
+        onPressed: pressed,
+        child: Text(text),
+    );
+
+    myBtn = Container(
+      margin: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+      child: myBtn,
+    );
+
+    return myBtn;
+  }
+
+
+
+}
+

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:flutter_learn/home/home.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -7,7 +8,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class SplashState extends State<SplashScreen> {
-
   @override
   void initState() {
     super.initState();
@@ -19,6 +19,7 @@ class SplashState extends State<SplashScreen> {
     print("SplashState----------build");
     Widget icon = Image.asset("images/loading_bg.png", fit: BoxFit.contain);
     icon = Align(child: icon, alignment: Alignment.bottomCenter);
+
     Widget bodyWidget = Container(
       color: Colors.white,
       child: icon,
@@ -28,15 +29,12 @@ class SplashState extends State<SplashScreen> {
     );
   }
 
-  void countDown(){
+  void countDown() {
     Duration duration = Duration(seconds: 5);
-    Future.delayed(duration,() => toHomePage());
+    Future.delayed(duration, () => toHomePage());
   }
 
-  void toHomePage(){
-    Navigator.of(context).pushNamed("/home");
-
+  void toHomePage() {
+    Navigator.of(context).pushReplacementNamed("/home");
   }
 }
-
-
