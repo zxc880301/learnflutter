@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/config/consts.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -17,20 +18,24 @@ class HomePageState extends State<HomePage> {
             MyButton(toTextDemoPage, "Text组件"),
             MyButton(toButtonDemoPage, "Button组件"),
             MyButton(toTextFieldDemoPage, "TextField组件"),
+            MyButton(toListViewDemoPage,"ListView组件")
           ],
         ));
   }
 
   void toTextDemoPage() {
-    Navigator.pushNamed(context, "/text_normal");
+    Navigator.pushNamed(context, RouteConfig.RKEY_TEXT_NORMAL);
   }
 
   void toButtonDemoPage() {
-    Navigator.pushNamed(context, "/button_normal");
+    Navigator.pushNamed(context, RouteConfig.RKEY_BUTTON_NORMAL);
   }
 
   void toTextFieldDemoPage() {
-    Navigator.pushNamed(context, "/textfield_normal");
+    Navigator.pushNamed(context, RouteConfig.RKEY_TEXTFIELD_NORMAL);
+  }
+  void toListViewDemoPage() {
+    Navigator.pushNamed(context, RouteConfig.RKEY_LISTVIEW_NORMAL);
   }
 }
 
